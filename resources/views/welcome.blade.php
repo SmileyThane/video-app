@@ -402,7 +402,7 @@
 <video id="video"></video>
 <script>
     var video = document.getElementById('video');
-    var videoSrc = 'http://localhost:8000/dash-stream_480p.m3u8';
+    var videoSrc = 'https://viktorplayeer.stagging.nl/dash-stream_480p.m3u8';
     if (Hls.isSupported()) {
         var hls = new Hls();
         hls.loadSource(videoSrc);
