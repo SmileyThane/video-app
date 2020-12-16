@@ -13,7 +13,7 @@ class StartConversionProcess extends Command
      *
      * @var string
      */
-    protected $signature = 'conversion:start {bucket, path}';
+    protected $signature = 'conversion:start {path} {bucket?} ';
 
     /**
      * The console command description.
@@ -25,11 +25,11 @@ class StartConversionProcess extends Command
     /**
      * Execute the console command.
      *
-     * @return PendingDispatch
+     * @return int
      */
-    public function handle(): PendingDispatch
+    public function handle(): int
     {
-        return ProcessConversion::dispatch($this->argument('bucket'), $this->argument('path'));
-
+        ProcessConversion::dispatch($this->argument('bucket'), $this->argument('path'));
+        return 0;
     }
 }

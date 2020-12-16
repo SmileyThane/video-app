@@ -26,18 +26,19 @@ class CheckConversionProcess extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         if (DB::table('jobs')->find($this->argument('id'))) {
             Log::info('Process ' . $this->argument('id') . ' pending');
-            return "Process pending";
-        }
-
-        if (DB::table('failed_jobs')->find($this->argument('id'))) {
+            echo "Process pending";
+        } elseif (DB::table('failed_jobs')->find($this->argument('id'))) {
             Log::warning('Process ' . $this->argument('id') . ' closed with error!');
-            return "Process closed with error. Retrying...";
+            echo "Process closed with error. Retrying...";
+        } else {
+            Log::info('Process ' . $this->argument('id') . ' finished');
+            echo "Process finished";
         }
-        Log::info('Process ' . $this->argument('id') . ' finished');
-        return "Process finished";
+        echo "\n";
+        return 0;
     }
 }
