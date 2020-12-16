@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Streaming;
 use Streaming\FFMpeg;
 use Streaming\HLSFlag;
@@ -14,7 +15,7 @@ class VideoController extends Controller
     private $ffmpeg;
     private $video;
 
-    public function run($personalBucket, $pathToFile): ?bool
+    public function run($pathToFile, $personalBucket = null): ?bool
     {
         try {
             $this->setDriver();
@@ -40,30 +41,40 @@ class VideoController extends Controller
         $this->ffmpeg = FFMpeg::create($conversionConfig);
     }
 
-    private function initialize($personalBucket, $pathToFile): void
+    private function initialize($pathToFile, $personalBucket = null): void
     {
-        $bucketConfig = [
-            'version' => 'latest',
-            'region' => env('VIDEO_BUCKET_REGION'),
-            'credentials' => [
-                'key' => env('VIDEO_BUCKET_ACCESS_KEY'),
-                'secret' => env('VIDEO_BUCKET_SECRET_KEY'),
-            ]
-        ];
-        $bucket = new Streaming\Clouds\S3($bucketConfig);
-        $fileConfig = [
-            'cloud' => $bucket,
-            'options' => [
-                'Bucket' => $personalBucket,
-                'Key' => $pathToFile
-            ]
-        ];
-        $this->video = $this->ffmpeg->openFromCloud($fileConfig);
+        if ($personalBucket) {
+            $bucketConfig = [
+                'version' => 'latest',
+                'region' => env('VIDEO_BUCKET_REGION'),
+                'credentials' => [
+                    'key' => env('VIDEO_BUCKET_ACCESS_KEY'),
+                    'secret' => env('VIDEO_BUCKET_SECRET_KEY'),
+                ]
+            ];
+            $bucket = new Streaming\Clouds\S3($bucketConfig);
+            $fileConfig = [
+                'cloud' => $bucket,
+                'options' => [
+                    'Bucket' => $personalBucket,
+                    'Key' => $pathToFile
+                ]
+            ];
+            $this->video = $this->ffmpeg->openFromCloud($fileConfig);
+        } else {
+            $this->video = $this->ffmpeg->open($pathToFile);
+        }
+
     }
 
     private function convert($saveTo, $saveLocal = false): void
     {
-        $saveTo = $saveLocal === true ? $saveTo : storage_path($saveTo);
+        if ($saveLocal === true) {
+            $url = env('APP_URL') . '/storage/' . $saveTo;
+            $saveTo = storage_path('app/public/' . $saveTo);
+        } else {
+            $url = $saveTo;
+        }
         $this->video->hls()
             ->x264()
             ->fragmentedMP4()
@@ -73,5 +84,8 @@ class VideoController extends Controller
             ->setHlsAllowCache(false)
             ->autoGenerateRepresentations()
             ->save($saveTo);
+        echo "\n-----\n";
+        echo "Url: " . $url;
+        echo "\n-----\n";
     }
 }
