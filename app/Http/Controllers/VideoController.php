@@ -78,9 +78,9 @@ class VideoController extends Controller
         $this->video->hls()
             ->x264()
             ->fragmentedMP4()
-            ->setHlsListSize(5)
+//            ->setHlsListSize(5)
             ->setFlags([HLSFlag::DELETE_SEGMENTS])
-            ->setHlsTime(10)
+            ->setHlsTime(30)
             ->setHlsAllowCache(false)
             ->autoGenerateRepresentations()
             ->save($saveTo);
