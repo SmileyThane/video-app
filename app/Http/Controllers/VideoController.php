@@ -19,7 +19,7 @@ class VideoController extends Controller
         try {
             $this->setDriver();
             $this->initialize($personalBucket, $pathToFile);
-            $this->convert((string)random_int(0, 999), true);
+            $this->convert(self::getRandomString() . '/' . self::getRandomString(), true);
             Log::warning("Operation for $personalBucket __ $pathToFile successful!");
             return true;
         } catch (Throwable $th) {
