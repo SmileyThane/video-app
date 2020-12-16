@@ -22,7 +22,7 @@ class ProcessConversion implements ShouldQueue
      * @param $bucket
      * @param $path
      */
-    public function __construct($bucket, $path)
+    public function __construct($path, $bucket = null)
     {
         $this->bucket = $bucket;
         $this->path = $path;
@@ -35,7 +35,7 @@ class ProcessConversion implements ShouldQueue
      */
     public function handle(): string
     {
-        (new VideoController())->run($this->bucket, $this->path);
+        (new VideoController())->run($this->path, $this->bucket);
         return $this->job->getJobId();
     }
 }
