@@ -399,15 +399,15 @@
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <!-- Or if you want a more recent alpha version -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@alpha"></script> -->
-<video id="video"></video>
+<video id="video" controls="true"></video>
 <script>
     var video = document.getElementById('video');
-    var videoSrc = 'https://viktorplayeer.stagging.nl/dash-stream_480p.m3u8';
+    var videoSrc = 'http://localhost:8000/storage/i-cf2yR5/pngF6d6F_720p.m3u8';
     if (Hls.isSupported()) {
         var hls = new Hls();
         hls.loadSource(videoSrc);
         hls.attachMedia(video);
-        hls.showControls(true)
+        hls.showControls();
     }
         // hls.js is not supported on platforms that do not have Media Source
         // Extensions (MSE) enabled.
