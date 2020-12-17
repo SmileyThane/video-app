@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b483b32-d333-4535-801e-09af08d2ea82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StreamRemoteDownload.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/HandleCors.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+    <list default="true" id="1b483b32-d333-4535-801e-09af08d2ea82" name="Default Changelist" comment="updated console commands screen results">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +177,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/storage/logs/laravel.log" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ojowo.com" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -195,7 +208,8 @@
       <workItem from="1607915651189" duration="16141000" />
       <workItem from="1608021695511" duration="7836000" />
       <workItem from="1608052995547" duration="4571000" />
-      <workItem from="1608078729194" duration="4341000" />
+      <workItem from="1608078729194" duration="7560000" />
+      <workItem from="1608110571406" duration="12123000" />
     </task>
     <task id="LOCAL-00001" summary="configured CORS">
       <created>1608054598832</created>
@@ -225,17 +239,157 @@
       <option name="project" value="LOCAL" />
       <updated>1608058233896</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updated core elements">
+      <created>1608083155122</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608083155122</updated>
+    </task>
+    <task id="LOCAL-00006" summary="updated main controller">
+      <created>1608083166420</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608083166420</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added jobs and failed jobs table">
+      <created>1608083187735</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608083187735</updated>
+    </task>
+    <task id="LOCAL-00008" summary="re-created video controller">
+      <created>1608083208681</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608083208681</updated>
+    </task>
+    <task id="LOCAL-00009" summary="created job for conversion">
+      <created>1608083231263</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608083231263</updated>
+    </task>
+    <task id="LOCAL-00010" summary="created console command for starting conversion job">
+      <created>1608083258644</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608083258644</updated>
+    </task>
+    <task id="LOCAL-00011" summary="created console command for checking conversion job status">
+      <created>1608083278329</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1608083278329</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added rand strings for path creating">
+      <created>1608083463248</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1608083463248</updated>
+    </task>
+    <task id="LOCAL-00013" summary="modified dynamic bucket config&#10;added new console logging&#10;modified local saving">
+      <created>1608086052360</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608086052360</updated>
+    </task>
+    <task id="LOCAL-00014" summary="minor job params modificaiotn">
+      <created>1608086108174</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1608086108174</updated>
+    </task>
+    <task id="LOCAL-00015" summary="updated console commands screen results">
+      <created>1608086175506</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1608086175506</updated>
+    </task>
+    <task id="LOCAL-00016" summary="updated player controls and config">
+      <created>1608118261262</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1608118261262</updated>
+    </task>
+    <task id="LOCAL-00017" summary="modified video generation settings">
+      <created>1608118282318</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1608118282318</updated>
+    </task>
+    <task id="LOCAL-00018" summary="removed symbols form random generator">
+      <created>1608118299684</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1608118299684</updated>
+    </task>
+    <task id="LOCAL-00019" summary="modified S3 saving">
+      <created>1608172101998</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1608172101998</updated>
+    </task>
+    <task id="LOCAL-00020" summary="updated src address">
+      <created>1608172677089</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1608172677089</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="configured CORS" />
     <MESSAGE value="modified cors conf" />
     <MESSAGE value="modified cors middleware" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified cors middleware" />
+    <MESSAGE value="updated core elements" />
+    <MESSAGE value="updated main controller" />
+    <MESSAGE value="added jobs and failed jobs table" />
+    <MESSAGE value="re-created video controller" />
+    <MESSAGE value="created job for conversion" />
+    <MESSAGE value="created console command for starting conversion job" />
+    <MESSAGE value="created console command for checking conversion job status" />
+    <MESSAGE value="added rand strings for path creating" />
+    <MESSAGE value="modified dynamic bucket config&#10;added new console logging&#10;modified local saving" />
+    <MESSAGE value="minor job params modification" />
+    <MESSAGE value="updated console commands screen results" />
+    <MESSAGE value="updated player controls and config" />
+    <MESSAGE value="modified video generation settings" />
+    <MESSAGE value="removed symbols form random generator" />
+    <MESSAGE value="modified S3 saving" />
+    <MESSAGE value="updated src address" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated src address" />
   </component>
   <component name="WindowStateProjectService">
     <state x="664" y="360" width="571" height="399" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607921821093">
@@ -250,22 +404,30 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1608081497934" />
-    <state x="567" y="133" width="776" height="847" key="CommitChangelistDialog2" timestamp="1608058233846">
+    <state x="567" y="133" width="776" height="847" key="CommitChangelistDialog2" timestamp="1608172677015">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="567" y="133" width="776" height="847" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1608058233846" />
+    <state x="567" y="133" width="776" height="847" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1608172677015" />
+    <state x="100" y="127" width="1720" height="853" key="DiffContextDialog" timestamp="1608084686290">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="100" y="127" width="1720" height="853" key="DiffContextDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1608084686290" />
     <state x="743" y="311" width="424" height="490" key="FileChooserDialogImpl" timestamp="1607929457746">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="743" y="311" width="424" height="490" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1607929457746" />
+    <state x="782" y="457" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog" timestamp="1608086130653">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="782" y="457" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog/0.27.1920.1053@0.27.1920.1053" timestamp="1608086130653" />
     <state x="732" y="278" width="445" height="556" key="NewPhpClassDialog" timestamp="1607905495905">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="732" y="278" width="445" height="556" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1607905495905" />
-    <state x="555" y="289" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1608058235233">
+    <state x="555" y="289" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1608177298070">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="555" y="289" width="800" height="534" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608058235233" />
+    <state x="555" y="289" width="800" height="534" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608177298070" />
     <state x="860" y="432" width="189" height="248" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1607921739889">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
