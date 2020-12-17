@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/720', function () {
+    return view('720');
+});
+
+Route::get('/480', function () {
+    return view('480');
+});

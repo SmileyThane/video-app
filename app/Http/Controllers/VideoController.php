@@ -36,7 +36,7 @@ class VideoController extends Controller
         $conversionConfig = [
             'ffmpeg.binaries' => '/usr/bin/ffmpeg',
             'ffprobe.binaries' => '/usr/bin/ffprobe',
-            'timeout' => 3600,
+            'timeout' => 7200,
             'ffmpeg.threads' => 8,
         ];
         $this->ffmpeg = FFMpeg::create($conversionConfig);
@@ -97,9 +97,9 @@ class VideoController extends Controller
             ->fragmentedMP4()
 //            ->setHlsListSize(5)
             ->setFlags([HLSFlag::DELETE_SEGMENTS])
-            ->setHlsTime(50)
+            ->setHlsTime(120)
             ->setHlsAllowCache(false)
-            ->addRepresentations([$r_720p])
+            ->addRepresentations([$r_480p])
             ->save(null, [$to_s3]);
         echo "\n-----\n";
         echo "Url: " . $url;
