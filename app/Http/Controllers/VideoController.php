@@ -37,7 +37,7 @@ class VideoController extends Controller
             'ffmpeg.binaries' => '/usr/bin/ffmpeg',
             'ffprobe.binaries' => '/usr/bin/ffprobe',
             'timeout' => 3600,
-            'ffmpeg.threads' => 24,
+            'ffmpeg.threads' => 8,
         ];
         $this->ffmpeg = FFMpeg::create($conversionConfig);
     }
@@ -97,7 +97,7 @@ class VideoController extends Controller
             ->fragmentedMP4()
 //            ->setHlsListSize(5)
             ->setFlags([HLSFlag::DELETE_SEGMENTS])
-            ->setHlsTime(10)
+            ->setHlsTime(50)
             ->setHlsAllowCache(false)
             ->addRepresentations([$r_720p])
             ->save(null, [$to_s3]);
