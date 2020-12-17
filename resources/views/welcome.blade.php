@@ -402,7 +402,7 @@
 <video id="video" controls="true"></video>
 <script>
     var video = document.getElementById('video');
-    var videoSrc = 'http://localhost:8000/storage/i-cf2yR5/pngF6d6F_720p.m3u8';
+    var videoSrc = 'https://stagging-nl-dev.s3.amazonaws.com/lu7dDVW2NRW3/original.m3u8';
     if (Hls.isSupported()) {
         var hls = new Hls();
         hls.loadSource(videoSrc);
