@@ -89,7 +89,7 @@ class VideoController extends Controller
 //        }
 
         $r_360p = (new Representation)->setKiloBitrate(276)->setResize(640, 360);
-        $r_480p = (new Representation)->setKiloBitrate(750)->setResize(854, 480);
+        $r_480p = (new Representation)->setKiloBitrate(400)->setResize(854, 480);
         $r_720p = (new Representation)->setKiloBitrate(2048)->setResize(1280, 720);
 
         $this->video->hls()
