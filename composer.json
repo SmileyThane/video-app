@@ -11,6 +11,7 @@
         "php": "^7.3|^8.0",
         "aminyazdanpanah/php-ffmpeg-video-streaming": "^1.2",
         "aws/aws-sdk-php": "^3.169",
+        "bringyourownideas/laravel-backblaze": "^2.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
