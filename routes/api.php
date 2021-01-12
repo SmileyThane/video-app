@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
-use Iman\Streamer\VideoStreamer;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +14,5 @@ use Iman\Streamer\VideoStreamer;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
-Route::get('stream', [Controller::class, 'streamVideo']);
-Route::get('chunks', [Controller::class, 'getChunks']);
-
-Route::get('/home', [Controller::class, 'freshStream']);
+Route::post('upload', [VideoController::class, 'upload']);
