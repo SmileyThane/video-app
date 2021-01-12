@@ -51,6 +51,12 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
+        'b2' => [
+            'driver'         => 'b2',
+            'accountId'      => '5134cb7c3bc1',
+            'applicationKey' => '000e3943339f68676bb324b470c0c43b97a99e5c3a',
+            'bucketName'     => 'video-app',
+        ],
 
     ],
 
