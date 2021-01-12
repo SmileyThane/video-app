@@ -20,8 +20,10 @@ class VideoController extends Controller
 
     public function upload(Request $request)
     {
-        if ($request->file()) {
-            $name = $request->file('file')->getFilename();
+        if ($request->file('file')) {
+            $name = $request->file('file')->getClientOriginalName();
+            $ext = $request->file('file')->getClientOriginalExtension();
+            $mime = $request->file('file')->getClientMimeType();
             $array = explode(".", $name);
             if (end($array) === "mp4") {
                 $this->run();
@@ -29,7 +31,14 @@ class VideoController extends Controller
                 $file = Storage::disk('b2')->put($name, $request->file('file'));
                 $uri = 'https://f000.backblazeb2.com/file/video-app/' . $file;
             }
-            return response()->json(['success' => true, 'data' => $uri]);
+            return response()->json(['success' => true,
+                'data' => [
+                    'type_id' => $this->getTypeByMime($mime),
+                    'name' => $name,
+                    'path' => $uri,
+                    'extension' => $ext
+                ]
+            ]);
         } else {
             return response()->json(['success' => false]);
         }
@@ -92,7 +101,7 @@ class VideoController extends Controller
 
 //        if ($saveLocal === true) {
 //            $url = env('APP_URL') . '/storage/' . $saveTo;
-            $saveTo = storage_path('app/public/' . $saveTo);
+        $saveTo = storage_path('app/public/' . $saveTo);
 //
 //        } else {
 //        $dest = 's3://' . env('VIDEO_SAVE_BUCKET') . '/' . $saveTo;
@@ -122,5 +131,25 @@ class VideoController extends Controller
 //        echo "Url: " . $url;
 //        echo "\n-----\n";
         return $saveTo;
+    }
+
+    private function getTypeByMime($mime)
+    {
+        if (strpos($mime, 'audio') !== false) {
+            return 5;
+        }
+        if (strpos($mime, 'video') !== false) {
+            return 3;
+        }
+        if (strpos($mime, 'document') !== false) {
+            return 4;
+        }
+        if (strpos($mime, 'pdf') !== false) {
+            return 4;
+        }
+        if (strpos($mime, 'image') !== false) {
+            return 2;
+        }
+        return 1;
     }
 }
