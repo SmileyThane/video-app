@@ -22,10 +22,8 @@ class VideoController extends Controller
     {
         if ($request->file('file')) {
             $name = $request->file('file')->getClientOriginalName();
-            $ext = $request->file('file')->getClientOriginalExtension();
-            $mime = $request->file('file')->getClientMimeType();
-            $array = explode(".", $name);
-            if (end($array) === "mp4") {
+            $typeId = $this->getTypeByMime($request->file('file')->getClientMimeType());
+            if ($typeId === 3) {
                 $this->run();
             } else {
                 $file = Storage::disk('b2')->put($name, $request->file('file'));
@@ -33,10 +31,12 @@ class VideoController extends Controller
             }
             return response()->json(['success' => true,
                 'data' => [
-                    'type_id' => $this->getTypeByMime($mime),
+                    'type_id' => $typeId,
                     'name' => $name,
                     'path' => $uri,
-                    'extension' => $ext
+                    'extension' => $request->file('file')->getClientOriginalExtension(),
+                    'mime_type' => $request->file('file')->getMimeType(),
+                    'size' => $request->file('file')->getSize(),
                 ]
             ]);
         } else {

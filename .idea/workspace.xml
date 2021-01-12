@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b483b32-d333-4535-801e-09af08d2ea82" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -219,6 +220,7 @@
       <workItem from="1608110571406" duration="17776000" />
       <workItem from="1608717637977" duration="613000" />
       <workItem from="1610430911400" duration="9280000" />
+      <workItem from="1610450663169" duration="1191000" />
     </task>
     <task id="LOCAL-00001" summary="configured CORS">
       <created>1608054598832</created>
