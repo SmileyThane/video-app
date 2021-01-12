@@ -19,8 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b483b32-d333-4535-801e-09af08d2ea82" name="Default Changelist" comment="updated console commands screen results">
+    <list default="true" id="1b483b32-d333-4535-801e-09af08d2ea82" name="Default Changelist" comment="modified view for short video">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +173,12 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php" />
       <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/vendor/mikey179/vfsstream" />
+      <path value="$PROJECT_DIR$/vendor/mhetreramesh/flysystem-backblaze" />
+      <path value="$PROJECT_DIR$/vendor/gliterd/laravel-backblaze-b2" />
+      <path value="$PROJECT_DIR$/vendor/gliterd/backblaze-b2" />
+      <path value="$PROJECT_DIR$/vendor/hpolthof/laravel-backblaze" />
+      <path value="$PROJECT_DIR$/vendor/bringyourownideas/laravel-backblaze" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lUSmpTBNRtYqDYn86hHelCCGHS" />
@@ -178,13 +190,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/storage/logs/laravel.log" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ojowo.com" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
@@ -209,7 +222,9 @@
       <workItem from="1608021695511" duration="7836000" />
       <workItem from="1608052995547" duration="4571000" />
       <workItem from="1608078729194" duration="7560000" />
-      <workItem from="1608110571406" duration="12123000" />
+      <workItem from="1608110571406" duration="17776000" />
+      <workItem from="1608717637977" duration="613000" />
+      <workItem from="1610430911400" duration="5948000" />
     </task>
     <task id="LOCAL-00001" summary="configured CORS">
       <created>1608054598832</created>
@@ -351,7 +366,56 @@
       <option name="project" value="LOCAL" />
       <updated>1608172677089</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="updated generator config">
+      <created>1608177538227</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1608177538227</updated>
+    </task>
+    <task id="LOCAL-00022" summary="updated file src">
+      <created>1608177550403</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1608177550403</updated>
+    </task>
+    <task id="LOCAL-00023" summary="added new routes">
+      <created>1608181969551</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1608181969551</updated>
+    </task>
+    <task id="LOCAL-00024" summary="created view for 480p video">
+      <created>1608181987382</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1608181987382</updated>
+    </task>
+    <task id="LOCAL-00025" summary="created view for 720p video">
+      <created>1608181997356</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1608181997356</updated>
+    </task>
+    <task id="LOCAL-00026" summary="modified view for short video">
+      <created>1608182009860</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1608182009860</updated>
+    </task>
+    <task id="LOCAL-00027" summary="optimized codec">
+      <created>1610430994079</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1610430994079</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +434,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="configured CORS" />
     <MESSAGE value="modified cors conf" />
     <MESSAGE value="modified cors middleware" />
     <MESSAGE value="updated core elements" />
@@ -389,7 +452,14 @@
     <MESSAGE value="removed symbols form random generator" />
     <MESSAGE value="modified S3 saving" />
     <MESSAGE value="updated src address" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated src address" />
+    <MESSAGE value="updated generator config" />
+    <MESSAGE value="updated file src" />
+    <MESSAGE value="added new routes" />
+    <MESSAGE value="created view for 480p video" />
+    <MESSAGE value="created view for 720p video" />
+    <MESSAGE value="modified view for short video" />
+    <MESSAGE value="optimized codec" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized codec" />
   </component>
   <component name="WindowStateProjectService">
     <state x="664" y="360" width="571" height="399" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607921821093">
@@ -404,10 +474,11 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1608081497934" />
-    <state x="567" y="133" width="776" height="847" key="CommitChangelistDialog2" timestamp="1608172677015">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="567" y="109" width="776" height="847" key="CommitChangelistDialog2" timestamp="1610430994025">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="567" y="133" width="776" height="847" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1608172677015" />
+    <state x="567" y="109" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1610430994025" />
+    <state x="567" y="133" width="776" height="847" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1608182016378" />
     <state x="100" y="127" width="1720" height="853" key="DiffContextDialog" timestamp="1608084686290">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -424,10 +495,11 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="732" y="278" width="445" height="556" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1607905495905" />
-    <state x="555" y="289" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1608177298070">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="555" y="269" width="800" height="534" key="Vcs.Push.Dialog.v2" timestamp="1610430995022">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="555" y="289" width="800" height="534" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608177298070" />
+    <state x="555" y="269" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1610430995022" />
+    <state x="555" y="289" width="800" height="534" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608182043114" />
     <state x="860" y="432" width="189" height="248" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1607921739889">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

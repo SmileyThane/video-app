@@ -7,6 +7,12 @@
       <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bringyourownideas/laravel-backblaze" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/gliterd/backblaze-b2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/gliterd/laravel-backblaze-b2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hpolthof/laravel-backblaze" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mhetreramesh/flysystem-backblaze" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mikey179/vfsstream" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
