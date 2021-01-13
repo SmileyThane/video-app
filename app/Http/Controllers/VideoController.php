@@ -24,7 +24,17 @@ class VideoController extends Controller
             $name = $request->file('file')->getClientOriginalName();
             $typeId = $this->getTypeByMime($request->file('file')->getClientMimeType());
             if ($typeId === 3) {
-                $this->run();
+                $saveTo = self::getRandomString(12);
+                $this->run($saveTo);
+                $files = Storage::allFiles($saveTo);
+                foreach ($files as $file) {
+                    $file = Storage::disk('b2')->put($file->getClientOriginalName(), $file);
+                    if ($file->getClientOriginalExtension() === 'm3u8'){
+                        $uri = 'https://f000.backblazeb2.com/file/video-app/' . $file;
+                    } else {
+                        $uri = 'https://empty.uri';
+                    }
+                }
             } else {
                 $file = Storage::disk('b2')->put($name, $request->file('file'));
                 $uri = 'https://f000.backblazeb2.com/file/video-app/' . $file;
@@ -43,6 +53,26 @@ class VideoController extends Controller
             return response()->json(['success' => false]);
         }
 
+    }
+
+    private function getTypeByMime($mime)
+    {
+        if (strpos($mime, 'audio') !== false) {
+            return 5;
+        }
+        if (strpos($mime, 'video') !== false) {
+            return 3;
+        }
+        if (strpos($mime, 'document') !== false) {
+            return 4;
+        }
+        if (strpos($mime, 'pdf') !== false) {
+            return 4;
+        }
+        if (strpos($mime, 'image') !== false) {
+            return 2;
+        }
+        return 1;
     }
 
     public function run($pathToFile, $personalBucket = null): ?bool
@@ -131,25 +161,5 @@ class VideoController extends Controller
 //        echo "Url: " . $url;
 //        echo "\n-----\n";
         return $saveTo;
-    }
-
-    private function getTypeByMime($mime)
-    {
-        if (strpos($mime, 'audio') !== false) {
-            return 5;
-        }
-        if (strpos($mime, 'video') !== false) {
-            return 3;
-        }
-        if (strpos($mime, 'document') !== false) {
-            return 4;
-        }
-        if (strpos($mime, 'pdf') !== false) {
-            return 4;
-        }
-        if (strpos($mime, 'image') !== false) {
-            return 2;
-        }
-        return 1;
     }
 }
