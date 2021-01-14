@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Streaming;
@@ -21,18 +22,24 @@ class VideoController extends Controller
     public function upload(Request $request)
     {
         if ($request->file('file')) {
+            $uri = '';
             $name = $request->file('file')->getClientOriginalName();
             $typeId = $this->getTypeByMime($request->file('file')->getClientMimeType());
             if ($typeId === 3) {
                 $saveTo = self::getRandomString(12);
+                $path = storage_path('app/public/' . $saveTo);
+                $request->file('file')->storeAs('public/' . $saveTo, $name);
+                $this->setDriver();
+                $this->video = $this->ffmpeg->open($path . '/' . $name);
                 $this->run($saveTo);
-                $files = Storage::allFiles($saveTo);
+                $files = Storage::files('public/' . $saveTo);
                 foreach ($files as $file) {
-                    $file = Storage::disk('b2')->put($file->getClientOriginalName(), $file);
-                    if ($file->getClientOriginalExtension() === 'm3u8'){
-                        $uri = 'https://f000.backblazeb2.com/file/video-app/' . $file;
-                    } else {
-                        $uri = 'https://empty.uri';
+                    $file = Storage::disk('b2')->put(
+                        $saveTo . '/' . File::basename($file),
+                        File::get(storage_path('app/' . $file))
+                    );
+                    if (File::extension($file) == 'm3u8') {
+                        $uri = 'https://f000.backblazeb2.com/file/video-app/' . $saveTo . '/' . File::basename($file);
                     }
                 }
             } else {
@@ -41,6 +48,7 @@ class VideoController extends Controller
             }
             return response()->json(['success' => true,
                 'data' => [
+                    'tmp' => $saveTo,
                     'type_id' => $typeId,
                     'name' => $name,
                     'path' => $uri,
@@ -60,7 +68,7 @@ class VideoController extends Controller
         if (strpos($mime, 'audio') !== false) {
             return 5;
         }
-        if (strpos($mime, 'video') !== false) {
+        if (strpos($mime, 'video') !== false || strpos($mime, 'octet-stream') !== false) {
             return 3;
         }
         if (strpos($mime, 'document') !== false) {
@@ -75,20 +83,6 @@ class VideoController extends Controller
         return 1;
     }
 
-    public function run($pathToFile, $personalBucket = null): ?bool
-    {
-        try {
-            $this->setDriver();
-            $this->initialize($pathToFile, $personalBucket);
-            Log::warning("Operation for $personalBucket __ $pathToFile successful!");
-            return $this->convert(self::getRandomString(12), false, $personalBucket);
-        } catch (Throwable $th) {
-            Log::warning($th);
-            return false;
-        }
-
-    }
-
     private function setDriver(): void
     {
         $conversionConfig = [
@@ -98,6 +92,57 @@ class VideoController extends Controller
             'ffmpeg.threads' => 8,
         ];
         $this->ffmpeg = FFMpeg::create($conversionConfig);
+    }
+
+    public function run($pathToFile, $personalBucket = null): ?bool
+    {
+        try {
+
+//            $this->initialize($pathToFile, $personalBucket);
+            Log::warning("Operation for $personalBucket __ $pathToFile successful!");
+            return $this->convert(self::getRandomString(12), false, $personalBucket);
+        } catch (Throwable $th) {
+            Log::warning($th);
+            return false;
+        }
+
+    }
+
+    private function convert($saveTo = null, $saveLocal = false, $personalBucket = null): string
+    {
+
+//        if ($saveLocal === true) {
+//            $url = env('APP_URL') . '/storage/' . $saveTo;
+//        $saveTo = storage_path('app/public/' . $saveTo);
+//
+//        } else {
+//        $dest = 's3://' . env('VIDEO_SAVE_BUCKET') . '/' . $saveTo;
+//        $filename = 'original.m3u8';
+//        $to_s3 = [
+//            'cloud' => $this->bucket,
+//            'options' => [
+//                'dest' => $dest,
+//                'filename' => ''
+//            ]
+//        ];
+//        $url = $dest . '/' . $filename;
+//        }
+
+        $r_480p = (new Representation)->setKiloBitrate(400)->setResize(854, 480);
+
+        $this->video->hls()
+            ->x264()
+            ->fragmentedMP4()
+//            ->setHlsListSize(5)
+            ->setFlags([HLSFlag::DELETE_SEGMENTS])
+            ->setHlsTime(30)
+            ->setHlsAllowCache(false)
+            ->addRepresentations([$r_480p])
+            ->save();
+//        echo "\n-----\n";
+//        echo "Url: " . $url;
+//        echo "\n-----\n";
+        return $saveTo;
     }
 
     private function initialize($pathToFile, $personalBucket = null): void
@@ -124,42 +169,5 @@ class VideoController extends Controller
 //            $this->video = $this->ffmpeg->open($pathToFile);
         }
 
-    }
-
-    private function convert($saveTo = null, $saveLocal = false, $personalBucket = null): string
-    {
-
-//        if ($saveLocal === true) {
-//            $url = env('APP_URL') . '/storage/' . $saveTo;
-        $saveTo = storage_path('app/public/' . $saveTo);
-//
-//        } else {
-//        $dest = 's3://' . env('VIDEO_SAVE_BUCKET') . '/' . $saveTo;
-//        $filename = 'original.m3u8';
-//        $to_s3 = [
-//            'cloud' => $this->bucket,
-//            'options' => [
-//                'dest' => $dest,
-//                'filename' => ''
-//            ]
-//        ];
-//        $url = $dest . '/' . $filename;
-//        }
-
-        $r_480p = (new Representation)->setKiloBitrate(400)->setResize(854, 480);
-
-        $this->video->hls()
-            ->x264()
-            ->fragmentedMP4()
-//            ->setHlsListSize(5)
-            ->setFlags([HLSFlag::DELETE_SEGMENTS])
-            ->setHlsTime(30)
-            ->setHlsAllowCache(false)
-            ->addRepresentations([$r_480p])
-            ->save($saveTo);
-//        echo "\n-----\n";
-//        echo "Url: " . $url;
-//        echo "\n-----\n";
-        return $saveTo;
     }
 }

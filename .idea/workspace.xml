@@ -221,7 +221,8 @@
       <workItem from="1608717637977" duration="613000" />
       <workItem from="1610430911400" duration="9280000" />
       <workItem from="1610450663169" duration="3661000" />
-      <workItem from="1610553416538" duration="357000" />
+      <workItem from="1610553416538" duration="4002000" />
+      <workItem from="1610604608264" duration="6585000" />
     </task>
     <task id="LOCAL-00001" summary="configured CORS">
       <created>1608054598832</created>
@@ -454,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610452005525</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="modified video conversion">
+      <created>1610554004867</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1610554004867</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +481,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created console command for starting conversion job" />
     <MESSAGE value="created console command for checking conversion job status" />
     <MESSAGE value="added rand strings for path creating" />
     <MESSAGE value="modified dynamic bucket config&#10;added new console logging&#10;modified local saving" />
@@ -498,7 +505,8 @@
     <MESSAGE value="modified response" />
     <MESSAGE value="minor fix" />
     <MESSAGE value="modified file parsing" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified file parsing" />
+    <MESSAGE value="modified video conversion" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified video conversion" />
   </component>
   <component name="WindowStateProjectService">
     <state x="664" y="360" width="571" height="399" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607921821093">
@@ -513,10 +521,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1608081497934" />
-    <state x="567" y="109" width="776" height="839" key="CommitChangelistDialog2" timestamp="1610452005359">
+    <state x="567" y="109" width="776" height="839" key="CommitChangelistDialog2" timestamp="1610554004813">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="567" y="109" width="776" height="839" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1610452005359" />
+    <state x="567" y="109" width="776" height="839" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1610554004813" />
     <state x="567" y="133" width="776" height="847" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1608182016378" />
     <state x="100" y="127" width="1720" height="853" key="DiffContextDialog" timestamp="1608084686290">
       <screen x="0" y="27" width="1920" height="1053" />
@@ -534,15 +542,23 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="732" y="278" width="445" height="556" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1607905495905" />
-    <state x="555" y="269" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1610452043245">
+    <state x="555" y="269" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1610613471927">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="555" y="269" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1610452043245" />
+    <state x="555" y="269" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1610613471927" />
     <state x="555" y="289" width="800" height="534" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608182043114" />
     <state x="860" y="432" width="189" height="248" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1607921739889">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="860" y="432" width="189" height="248" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.27.1920.1053@0.27.1920.1053" timestamp="1607921739889" />
+    <state x="100" y="100" width="1720" height="880" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1610606302831">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="100" y="100" width="1720" height="880" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1610606302831" />
+    <state x="100" y="100" width="1720" height="880" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1610606302831">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="100" y="100" width="1720" height="880" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1610606302831" />
     <state x="570" y="167" width="770" height="779" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1607919915690">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -551,5 +567,9 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="669" y="297" width="581" height="512" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1608081932729" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1610606905176">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1610606905176" />
   </component>
 </project>
