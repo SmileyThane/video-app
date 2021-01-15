@@ -43,12 +43,11 @@ class VideoController extends Controller
                     }
                 }
             } else {
-                $file = Storage::disk('b2')->put($name, $request->file('file'));
+                $file = Storage::disk('s3')->put($name, $request->file('file'));
                 $uri = 'https://f000.backblazeb2.com/file/video-app/' . $file;
             }
             return response()->json(['success' => true,
                 'data' => [
-                    'tmp' => $saveTo,
                     'type_id' => $typeId,
                     'name' => $name,
                     'path' => $uri,
