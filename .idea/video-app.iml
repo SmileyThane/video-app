@@ -11,6 +11,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/gliterd/backblaze-b2" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/gliterd/laravel-backblaze-b2" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hpolthof/laravel-backblaze" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem-aws-s3-v3" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mhetreramesh/flysystem-backblaze" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mikey179/vfsstream" />
     </content>
