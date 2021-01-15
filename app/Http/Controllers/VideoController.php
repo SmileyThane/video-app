@@ -23,10 +23,10 @@ class VideoController extends Controller
     {
         if ($request->file('file')) {
             $uri = '';
+            $saveTo = self::getRandomString(12);
             $name = $request->file('file')->getClientOriginalName();
             $typeId = $this->getTypeByMime($request->file('file')->getClientMimeType());
-            if ($typeId === 3) {
-                $saveTo = self::getRandomString(12);
+            if ($typeId === 6) {
                 $path = storage_path('app/public/' . $saveTo);
                 $request->file('file')->storeAs('public/' . $saveTo, $name);
                 $this->setDriver();
@@ -34,17 +34,21 @@ class VideoController extends Controller
                 $this->run($saveTo);
                 $files = Storage::files('public/' . $saveTo);
                 foreach ($files as $file) {
-                    $file = Storage::disk('b2')->put(
-                        $saveTo . '/' . File::basename($file),
+                    Storage::disk('s3')->put(
+                        $saveTo,
                         File::get(storage_path('app/' . $file))
                     );
+
+//                    dd($uri);
+                    Log::info('file ' . File::extension($file));
                     if (File::extension($file) == 'm3u8') {
-                        $uri = 'https://f000.backblazeb2.com/file/video-app/' . $saveTo . '/' . File::basename($file);
+                        Log::info('m3u8 ' . File::extension($file));
+                        $uri = Storage::disk('s3')->url($file);
                     }
                 }
             } else {
-                $file = Storage::disk('s3')->put($name, $request->file('file'));
-                $uri = 'https://f000.backblazeb2.com/file/video-app/' . $file;
+                $file = Storage::disk('s3')->put($saveTo, $request->file('file'));
+                $uri = Storage::disk('s3')->url($file);
             }
             return response()->json(['success' => true,
                 'data' => [

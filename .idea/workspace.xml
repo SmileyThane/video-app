@@ -20,8 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b483b32-d333-4535-801e-09af08d2ea82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +223,7 @@
       <workItem from="1610450663169" duration="3661000" />
       <workItem from="1610553416538" duration="4002000" />
       <workItem from="1610604608264" duration="12316000" />
-      <workItem from="1610730236250" duration="760000" />
+      <workItem from="1610730236250" duration="1900000" />
     </task>
     <task id="LOCAL-00001" summary="configured CORS">
       <created>1608054598832</created>
@@ -478,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610730368899</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="updated uploader conf">
+      <created>1610731017758</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1610731017758</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +503,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added rand strings for path creating" />
     <MESSAGE value="modified dynamic bucket config&#10;added new console logging&#10;modified local saving" />
     <MESSAGE value="minor job params modification" />
     <MESSAGE value="updated console commands screen results" />
@@ -522,7 +527,8 @@
     <MESSAGE value="modified file parsing" />
     <MESSAGE value="modified video conversion" />
     <MESSAGE value="removed tmp var" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed tmp var" />
+    <MESSAGE value="updated uploader conf" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated uploader conf" />
   </component>
   <component name="WindowStateProjectService">
     <state x="664" y="360" width="571" height="399" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607921821093">
@@ -537,10 +543,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1608081497934" />
-    <state x="567" y="109" width="776" height="839" key="CommitChangelistDialog2" timestamp="1610730368842">
+    <state x="567" y="109" width="776" height="839" key="CommitChangelistDialog2" timestamp="1610731017701">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="567" y="109" width="776" height="839" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1610730368842" />
+    <state x="567" y="109" width="776" height="839" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1610731017701" />
     <state x="567" y="133" width="776" height="847" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1608182016378" />
     <state x="100" y="127" width="1720" height="853" key="DiffContextDialog" timestamp="1608084686290">
       <screen x="0" y="27" width="1920" height="1053" />
@@ -558,10 +564,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="732" y="278" width="445" height="556" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1607905495905" />
-    <state x="555" y="269" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1610730995191">
+    <state x="555" y="269" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1610731019418">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="555" y="269" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1610730995191" />
+    <state x="555" y="269" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1610731019418" />
     <state x="555" y="289" width="800" height="534" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608182043114" />
     <state x="860" y="432" width="189" height="248" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1607921739889">
       <screen x="0" y="27" width="1920" height="1053" />
