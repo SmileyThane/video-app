@@ -26,7 +26,7 @@ class VideoController extends Controller
             $saveTo = self::getRandomString(12);
             $name = $request->file('file')->getClientOriginalName();
             $typeId = $this->getTypeByMime($request->file('file')->getClientMimeType());
-            if ($typeId === 6) {
+            if ($typeId === 3) {
                 $path = storage_path('app/public/' . $saveTo);
                 $request->file('file')->storeAs('public/' . $saveTo, $name);
                 $this->setDriver();
@@ -34,16 +34,14 @@ class VideoController extends Controller
                 $this->run($saveTo);
                 $files = Storage::files('public/' . $saveTo);
                 foreach ($files as $file) {
-                    Storage::disk('s3')->put(
-                        $saveTo,
+                    Storage::disk('b2')->put(
+                        $file,
                         File::get(storage_path('app/' . $file))
                     );
-
-//                    dd($uri);
                     Log::info('file ' . File::extension($file));
                     if (File::extension($file) == 'm3u8') {
                         Log::info('m3u8 ' . File::extension($file));
-                        $uri = Storage::disk('s3')->url($file);
+                        $uri = 'https://f000.backblazeb2.com/file/video-app/' . $file;
                     }
                 }
             } else {
@@ -142,9 +140,6 @@ class VideoController extends Controller
             ->setHlsAllowCache(false)
             ->addRepresentations([$r_480p])
             ->save();
-//        echo "\n-----\n";
-//        echo "Url: " . $url;
-//        echo "\n-----\n";
         return $saveTo;
     }
 
@@ -168,8 +163,6 @@ class VideoController extends Controller
                 ]
             ];
             $this->video = $this->ffmpeg->openFromCloud($fileConfig);
-//        } else {
-//            $this->video = $this->ffmpeg->open($pathToFile);
         }
 
     }
